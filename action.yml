@@ -1,0 +1,20 @@
+name: Setup PHP by Ali
+description: Install PHP with common extensions
+author: Ali Mazloum
+
+inputs:
+  php-version:
+    description: 'PHP version to install'
+    required: false
+    default: '8.2'
+
+runs:
+  using: "composite"
+  steps:
+    - name: Run PHP installer
+      shell: bash
+      run: ${{ github.action_path }}/entrypoint.sh ${{ inputs.php-version }}
+
+branding:
+  icon: 'server'
+  color: 'blue'
